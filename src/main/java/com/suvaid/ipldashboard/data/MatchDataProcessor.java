@@ -2,14 +2,12 @@ package com.suvaid.ipldashboard.data;
 
 import java.time.LocalDate;
 
-import com.suvaid.ipldashboard.data.Model.Match;
+import com.suvaid.ipldashboard.Model.Match;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.batch.item.ItemProcessor;
-
-
 
 public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
 
@@ -24,18 +22,18 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
     match.setPlayerOfMatch(matchInput.getPlayer_of_match());
     match.setVenue(matchInput.getVenue());
     String firstInningsTeam, secondInningsTeam;
-    if("bat".equals(matchInput.getToss_decision()))
-    {
-        firstInningsTeam = matchInput.getToss_winner();
-        secondInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1()) 
-            ? matchInput.getTeam2() : matchInput.getTeam1();
+    if ("bat".equals(matchInput.getToss_decision())) {
+      firstInningsTeam = matchInput.getToss_winner();
+      secondInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1())
+          ? matchInput.getTeam2()
+          : matchInput.getTeam1();
     }
 
-    else 
-    {
-        secondInningsTeam = matchInput.getToss_winner();
-        firstInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1()) 
-        ? matchInput.getTeam2() : matchInput.getTeam1();
+    else {
+      secondInningsTeam = matchInput.getToss_winner();
+      firstInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1())
+          ? matchInput.getTeam2()
+          : matchInput.getTeam1();
     }
     match.setTeam1(firstInningsTeam);
     match.setTeam2(secondInningsTeam);
@@ -49,4 +47,3 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
   }
 
 }
-
