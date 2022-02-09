@@ -6,9 +6,7 @@ export const TeamPage = () => {
   const [team, setTeam] = useState({ matches: [] });
   useEffect(() => {
     const fetchMatches = async () => {
-      const response = await fetch(
-        "http://localhost:8080/team/Deccan Chargers"
-      );
+      const response = await fetch("http://localhost:8080/team/Delhi Capital");
       const data = await response.json();
       setTeam(data);
     };
