@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { MatchDetailCard } from "../components/MatchDetailCard";
 import { useParams } from "react-router-dom";
+import "./MatchPage.scss";
 
 export const MatchPage = () => {
   const [matches, setMatches] = useState([]);
