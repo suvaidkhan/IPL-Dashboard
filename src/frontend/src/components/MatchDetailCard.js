@@ -10,9 +10,7 @@ export const MatchDetailCard = ({ teamName, match }) => {
   return (
     <div
       className={
-        isMatchWon
-          ? "MatchDetailCard won - card"
-          : "MatchDetailCard lost - card"
+        isMatchWon ? "MatchDetailCard won-card" : "MatchDetailCard lost-card"
       }
     >
       <div>
